@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>王様の夢枕Ⅱ 商品ページ リニューアル案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#36544a;
+  --green-deep:#24382f;
+  --gold:#a88a4e;
+  --gold-soft:#e9dfc8;
+  --paper:#f6f3ec;
+  --white:#fffdf8;
+  --ink:#1f2a25;
+  --sub:#5c6762;
+  --line:#d9d3c4;
+  --gift-red:#9e2a2b;
+  --gift-navy:#1f2f4d;
+  --mincho:"Shippori Mincho B1",serif;
+  --sans:"Noto Sans JP",sans-serif;
+  --num:"Jost",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#e4e0d6}
+body{font-family:var(--sans);color:var(--ink);background:#e4e0d6;line-height:1.85;-webkit-text-size-adjust:100%}
+img{display:block;width:100%}
+.page{max-width:480px;margin:0 auto;background:var(--paper);overflow:hidden}
+.num{font-family:var(--num)}
+.mincho{font-family:var(--mincho)}
+.sec{padding:72px 24px}
+.label{font-family:var(--num);font-size:13px;letter-spacing:.22em;color:var(--gold);display:flex;align-items:center;gap:10px}
+.label::after{content:"";height:1px;width:40px;background:var(--gold)}
+h2{font-family:var(--mincho);font-weight:600;font-size:30px;line-height:1.5;letter-spacing:.04em;margin-top:18px}
+.lead{font-size:16px;margin-top:20px;color:var(--ink)}
+.note{font-size:13px;color:var(--sub);line-height:1.7}
+
+/* 01 FV */
+.fv{background:var(--white)}
+.fv-photo{aspect-ratio:5/4;overflow:hidden}
+.fv-photo img{height:100%;object-fit:cover;object-position:50% 100%}
+.fv-body{padding:34px 24px 40px;position:relative}
+.fv-catch{font-family:var(--mincho);font-size:19px;font-weight:500;letter-spacing:.06em;color:var(--green)}
+.fv-name{font-family:var(--mincho);font-weight:700;font-size:46px;white-space:nowrap;line-height:1.15;letter-spacing:.06em;margin-top:6px}
+.fv-name small{font-size:24px;letter-spacing:.1em;display:block;font-weight:600;color:var(--sub);margin-bottom:4px}
+.proof{display:grid;grid-template-columns:1fr 1fr;margin-top:30px;border-top:1px solid var(--line)}
+.proof div{padding:16px 4px 14px;border-bottom:1px solid var(--line)}
+.proof div:nth-child(odd){border-right:1px solid var(--line);padding-right:14px}
+.proof div:nth-child(even){padding-left:16px}
+.proof b{display:block;font-family:var(--num);font-weight:400;font-size:34px;line-height:1.1;color:var(--green-deep)}
+.proof b em{font-style:normal;font-family:var(--sans);font-size:15px;font-weight:700;margin-left:2px}
+.proof span{font-size:13px;color:var(--sub);line-height:1.5;display:block;margin-top:4px}
+
+/* 02 悩み */
+.worry{background:var(--green);color:var(--white)}
+.worry .label{color:var(--gold-soft)}
+.worry .label::after{background:var(--gold-soft)}
+.worry h2{font-size:34px;line-height:1.45}
+.worry-list{list-style:none;margin-top:40px;counter-reset:w}
+.worry-list li{counter-increment:w;display:grid;grid-template-columns:48px 1fr;align-items:baseline;padding:18px 0;border-top:1px solid rgba(255,255,255,.22);font-size:18px;font-weight:500}
+.worry-list li:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+.worry-list li::before{content:"0" counter(w);font-family:var(--num);font-size:15px;color:var(--gold-soft);letter-spacing:.1em}
+.worry .answer{margin-top:36px;font-size:16px;color:#dfe7e2}
+.worry .answer strong{color:var(--white);font-weight:700}
+
+/* 03 ビーズ */
+.beads{background:var(--paper);padding-bottom:0}
+.big-num{font-family:var(--num);font-weight:300;font-size:120px;line-height:1;color:var(--green-deep);margin-top:26px;letter-spacing:-.02em}
+.big-num small{font-size:40px;margin-left:4px}
+.beads-photo{margin:40px -24px 0;aspect-ratio:4/3;overflow:hidden}
+.beads-photo img{height:100%;object-fit:cover;object-position:50% 100%}
+.blend{display:flex;margin-top:28px;height:10px}
+.blend i{display:block;height:100%}
+.blend-legend{display:flex;justify-content:space-between;font-size:14px;margin-top:10px}
+.blend-legend b{font-family:var(--num);font-weight:500;font-size:20px;margin-right:4px}
+
+/* 04 形 */
+.shape{background:var(--white)}
+.shape h2 .num{font-size:44px;font-weight:400;color:var(--green)}
+.toggle{display:grid;grid-template-columns:1fr 1fr;margin-top:30px;border:1px solid var(--green)}
+.toggle button{font:inherit;font-size:16px;font-weight:700;padding:14px 0;border:0;background:transparent;color:var(--green);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--green);color:var(--white)}
+.diagram{margin-top:26px;background:var(--paper);padding:28px 10px 18px}
+.diagram svg{width:100%;height:auto;overflow:visible}
+#head{transition:transform .7s cubic-bezier(.6,.05,.3,1)}
+.shape-text{margin-top:22px;font-size:16px;min-height:5.6em}
+.size-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:26px;border:1px solid var(--line)}
+.size-row div{background:var(--white);padding:16px 14px}
+.size-row h3{font-size:14px;color:var(--sub);font-weight:500}
+.size-row p{font-size:15px;line-height:1.6;margin-top:6px}
+.size-row p b{font-family:var(--num);font-weight:500;font-size:26px}
+
+/* 05 選び方ナビ */
+.nav{background:var(--paper)}
+.q{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.q-head{display:flex;gap:14px;align-items:baseline}
+.q-head .num{font-size:15px;color:var(--gold);letter-spacing:.12em;flex:none}
+.q-head p{font-size:19px;font-weight:700;line-height:1.55}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.opts button{font:inherit;text-align:left;background:var(--white);border:1px solid var(--line);padding:14px 14px 13px;cursor:pointer;color:var(--ink);transition:border-color .2s,background .2s}
+.opts button b{display:block;font-size:16px}
+.opts button span{display:block;font-size:13px;color:var(--sub);line-height:1.55;margin-top:4px}
+.opts button[aria-pressed="true"]{border-color:var(--green);background:#e6ece8;box-shadow:inset 0 0 0 1px var(--green)}
+.result{margin-top:36px;background:var(--green-deep);color:var(--white);padding:28px 22px}
+.result p.r-title{font-family:var(--mincho);font-size:22px;font-weight:600}
+.result dl{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:16px}
+.result dt{color:var(--gold-soft);font-size:14px;padding-top:2px}
+.result dd{font-weight:700}
+.result .pending{color:#9fb0a8;font-weight:400}
+.result .r-note{font-size:13px;color:#b9c6c0;margin-top:18px;line-height:1.7}
+
+/* 06 声 */
+.voice{background:var(--white)}
+.voice .big-num{font-size:92px;margin-top:20px}
+.voice .big-num small{font-family:var(--sans);font-size:20px;font-weight:700}
+.rating{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:15px}
+.rating .bar{flex:1;height:6px;background:var(--line);position:relative}
+.rating .bar i{position:absolute;inset:0 auto 0 0;width:85.4%;background:var(--gold)}
+.rating b{font-family:var(--num);font-weight:500;font-size:24px}
+.quotes{margin-top:40px}
+.quotes figure{padding:24px 0;border-top:1px solid var(--line)}
+.quotes figure:last-child{border-bottom:1px solid var(--line)}
+.quotes blockquote{font-family:var(--mincho);font-size:20px;font-weight:500;line-height:1.7}
+.quotes figcaption{font-size:13px;color:var(--sub);margin-top:10px}
+.quotes figure:nth-child(2){padding-left:36px}
+
+/* 07 保証 */
+.promise{background:var(--green-deep);color:var(--white)}
+.promise .label{color:var(--gold-soft)}
+.promise .label::after{background:var(--gold-soft)}
+.promise .big-num{color:var(--gold-soft)}
+.promise .big-num small{font-family:var(--mincho);font-size:30px;font-weight:600}
+.promise h2{font-size:28px}
+.promise .lead{color:#dfe7e2}
+.promise-sub{margin-top:44px;display:grid;gap:1px;background:rgba(255,255,255,.18)}
+.promise-sub div{background:var(--green-deep);padding:20px 0;display:grid;grid-template-columns:96px 1fr;align-items:center}
+.promise-sub b{font-family:var(--mincho);font-size:22px;color:var(--gold-soft);font-weight:600}
+.promise-sub p{font-size:15px;line-height:1.7;color:#dfe7e2}
+.origin{margin-top:44px;padding-top:30px;border-top:1px solid rgba(255,255,255,.22)}
+.origin p.mincho{font-size:22px;line-height:1.7;font-weight:500}
+.origin .note{color:#a9b9b1;margin-top:14px}
+
+/* 08 ギフト */
+.gift{background:#f1ebe0;padding-bottom:0}
+.season{font-family:var(--num);font-size:12px;letter-spacing:.2em;color:var(--gift-red)}
+.gift h2{font-size:32px}
+.gift-photo{margin:34px -24px 0;aspect-ratio:16/10;overflow:hidden;background:var(--white)}
+.gift-photo img{height:100%;object-fit:cover;object-position:50% 100%}
+.gift-list{list-style:none;margin-top:8px}
+.gift-list li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:20px 0;border-bottom:1px solid var(--line)}
+.gift-list h3{font-size:17px;font-weight:700}
+.gift-list p{font-size:14px;color:var(--sub);line-height:1.6;margin-top:2px}
+.gift-list .price{font-family:var(--num);font-size:16px;color:var(--green-deep);text-align:right;white-space:nowrap}
+.swatch{display:flex;gap:6px}
+.swatch i{width:28px;height:28px;display:block}
+.gift-end{padding:30px 0 64px;font-size:15px}
+
+/* 09 FAQ */
+.faq{background:var(--paper)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:grid;grid-template-columns:34px 1fr 20px;gap:4px;align-items:baseline;padding:20px 0;font-size:17px;font-weight:700;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--num);font-weight:400;font-size:22px;color:var(--gold)}
+.faq summary::after{content:"";width:12px;height:12px;border-right:1.5px solid var(--green);border-bottom:1.5px solid var(--green);transform:rotate(45deg) translateY(-4px);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+.faq .a{padding:0 0 22px 38px;font-size:15px;line-height:1.85}
+.faq-wrap{margin-top:30px}
+
+/* 10 仕様 */
+.spec{background:var(--white)}
+.spec dl{margin-top:26px}
+.spec dl div{padding:16px 0;border-top:1px solid var(--line)}
+.spec dl div:last-child{border-bottom:1px solid var(--line)}
+.spec dt{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.08em}
+.spec dd{font-size:15px;line-height:1.75;margin-top:4px}
+.end{background:var(--green);color:var(--white);padding:56px 24px 64px;text-align:center}
+.end p.mincho{font-size:26px;font-weight:600;line-height:1.6}
+.end .note{color:#c9d5cf;margin-top:14px}
+
+.mock-note{max-width:480px;margin:0 auto;padding:18px 24px 40px;font-size:12px;color:#6b6f6a;line-height:1.7}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- 01 FV -->
+  <section class="fv">
+    <div class="fv-photo">
+      <img src="https://image.rakuten.co.jp/oyasumi/cabinet/m104-2/104-700500-10-04.jpg" alt="王様の夢枕Ⅱで眠る女性">
+    </div>
+    <div class="fv-body">
+      <p class="fv-catch">20年、100万人の眠りを<br>支えてきた枕。</p>
+      <h1 class="fv-name"><small>日本製の安眠枕</small>王様の夢枕Ⅱ</h1>
+      <div class="proof">
+        <div><b>16,141<em>件</em></b><span>レビュー 平均4.27</span></div>
+        <div><b>No.1</b><span>楽天ランキング<br>枕部門 獲得</span></div>
+        <div><b>100<em>万人</em></b><span>以上が愛用<br>発売から20年</span></div>
+        <div><b>20<em>日間</em></b><span>寝ごこち<br>安心保証つき</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 悩み -->
+  <section class="sec worry">
+    <p class="label">FOR YOUR SLEEP</p>
+    <h2>寝返りを、<br>じゃましない枕。</h2>
+    <ul class="worry-list">
+      <li>今の枕、高さがしっくりこない</li>
+      <li>寝返りのたびに、目が覚める</li>
+      <li>横向きになると、肩が窮屈</li>
+    </ul>
+    <p class="answer">どれかひとつでも当てはまるなら。<br><strong>頭の動きに合わせて形を変える「超極小ビーズ」</strong>と、<strong>仰向けにも横向きにも合わせた形</strong>が、ひと晩の寝返りを受けとめます。</p>
+  </section>
+
+  <!-- 03 ビーズ -->
+  <section class="sec beads">
+    <p class="label">MATERIAL</p>
+    <h2>さらさらと、<br>形を変える。</h2>
+    <p class="big-num">0.5<small>mm</small></p>
+    <p class="lead">王様の夢枕の中身は、直径約0.5mmの超極小ビーズ。ふんわり柔らかいのに、沈み込みすぎない。20年変えずに受け継いできた寝心地です。</p>
+    <div class="blend" aria-hidden="true">
+      <i style="width:95%;background:var(--green)"></i><i style="width:5%;background:var(--gold)"></i>
+    </div>
+    <div class="blend-legend">
+      <span><b class="num">95%</b>超極小ビーズ</span>
+      <span><b class="num">5%</b>ポリエステルわた</span>
+    </div>
+    <p class="note" style="margin-top:8px">王様オリジナルブレンド</p>
+    <div class="beads-photo">
+      <img src="https://image.rakuten.co.jp/oyasumi/cabinet/m104/104-700500-10-3.jpg" alt="手で押すと形が変わる枕">
+    </div>
+  </section>
+
+  <!-- 04 形 -->
+  <section class="sec shape">
+    <p class="label">SHAPE</p>
+    <h2>真ん中は<span class="num">8</span>cm、<br>両脇は<span class="num">12</span>cm。</h2>
+    <div class="toggle" role="group" aria-label="寝姿勢を切り替える">
+      <button type="button" data-pose="back" aria-pressed="true">仰向けのとき</button>
+      <button type="button" data-pose="side" aria-pressed="false">横向きのとき</button>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 360 170" role="img" aria-label="枕を正面から見た断面図。中央が低く、両脇が高い">
+        <!-- 枕の断面 -->
+        <path d="M20 150 L20 58 C20 40 34 34 54 34 C88 34 104 40 118 62 C132 82 150 88 180 88 C210 88 228 82 242 62 C256 40 272 34 306 34 C326 34 340 40 340 58 L340 150 Z" fill="#fffdf8" stroke="#36544a" stroke-width="2"/>
+        <line x1="10" y1="150" x2="350" y2="150" stroke="#a88a4e" stroke-width="1"/>
+        <!-- 寸法線 -->
+        <g stroke="#a88a4e" stroke-width="1" fill="none">
+          <line x1="180" y1="92" x2="180" y2="146" stroke-dasharray="3 3"/>
+          <line x1="312" y1="38" x2="312" y2="146" stroke-dasharray="3 3"/>
+        </g>
+        <text x="188" y="126" font-family="Jost" font-size="20" fill="#24382f">8<tspan font-size="12">cm</tspan></text>
+        <text x="282" y="104" font-family="Jost" font-size="20" fill="#24382f">12<tspan font-size="12">cm</tspan></text>
+        <text x="180" y="166" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#5c6762">幅 約62cm（高さ標準タイプ）</text>
+        <!-- 頭 -->
+        <g id="head">
+          <ellipse cx="180" cy="58" rx="34" ry="30" fill="#36544a" opacity=".9"/>
+        </g>
+      </svg>
+    </div>
+    <p class="shape-text" id="shapeText">仰向けのときは、低い中央に頭がおさまり、首元をやさしく支えます。</p>
+    <div class="size-row">
+      <div><h3>高さ標準</h3><p>首元 <b class="num">8</b>cm<br>両脇 <b class="num">12</b>cm</p></div>
+      <div><h3>高さ低め</h3><p>首元 <b class="num">7</b>cm<br>両脇 <b class="num">10</b>cm</p></div>
+    </div>
+  </section>
+
+  <!-- 05 選び方ナビ -->
+  <section class="sec nav" id="nav">
+    <p class="label">HOW TO CHOOSE</p>
+    <h2>3つ答えるだけで、<br>あなたの1台が決まります。</h2>
+
+    <div class="q" data-q="type">
+      <div class="q-head"><span class="num">Q.01</span><p>どの季節に、いちばん使いますか？</p></div>
+      <div class="opts">
+        <button type="button" data-v="標準タイプ"><b>一年中</b><span>肌ざわりと吸湿性のテンセル入りカバー</span></button>
+        <button type="button" data-v="クールタイプ"><b>暑い季節・暑がり</b><span>ひんやり接触冷感カバー（当店限定）</span></button>
+      </div>
+    </div>
+
+    <div class="q" data-q="height">
+      <div class="q-head"><span class="num">Q.02</span><p>今の枕の高さは、どう感じますか？</p></div>
+      <div class="opts">
+        <button type="button" data-v="高さ標準"><b>ちょうどいい・迷う</b><span>迷ったらこちら。いちばん選ばれている高さ</span></button>
+        <button type="button" data-v="高さ低め"><b>低めが好き</b><span>首元7cm・両脇10cmのひかえめな高さ</span></button>
+      </div>
+    </div>
+
+    <div class="q" data-q="pack">
+      <div class="q-head"><span class="num">Q.03</span><p>だれが使いますか？</p></div>
+      <div class="opts">
+        <button type="button" data-v="不織布バッグ入り（エコ包装）"><b>自分・家族</b><span>ごみが少ないエコ包装</span></button>
+        <button type="button" data-v="化粧箱入り"><b>贈りもの</b><span>そのまま渡せる化粧箱。ラッピング無料</span></button>
+      </div>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <p class="r-title">あなたにおすすめの組み合わせ</p>
+      <dl>
+        <dt>タイプ</dt><dd id="r-type" class="pending">Q.01を選んでください</dd>
+        <dt>高さ</dt><dd id="r-height" class="pending">Q.02を選んでください</dd>
+        <dt>包装</dt><dd id="r-pack" class="pending">Q.03を選んでください</dd>
+      </dl>
+      <p class="r-note">ページ上部のカートで、この3つを選んでご注文ください。合わなかったときも、20日間の寝ごこち安心保証があります。</p>
+    </div>
+  </section>
+
+  <!-- 06 声 -->
+  <section class="sec voice">
+    <p class="label">REVIEWS</p>
+    <h2>いちばんの説明は、<br>使った人の言葉です。</h2>
+    <p class="big-num">16,141<small>件</small></p>
+    <div class="rating"><b>4.27</b><span class="bar"><i></i></span><span class="note">5点満点</span></div>
+    <div class="quotes">
+      <figure>
+        <blockquote>最高の寝心地、買ってよかったです。家族用にもう一つほしい。</blockquote>
+        <figcaption>30代・女性</figcaption>
+      </figure>
+      <figure>
+        <blockquote>プレゼントで購入。とても寝心地が良いと喜んでもらえました。</blockquote>
+        <figcaption>購入者さん・ギフト</figcaption>
+      </figure>
+      <figure>
+        <blockquote>快適に眠れます。少し大きいのは気になるけど満足してます。</blockquote>
+        <figcaption>60代・女性</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 07 保証・日本製 -->
+  <section class="sec promise">
+    <p class="label">PROMISE</p>
+    <p class="big-num">20<small>日間</small></p>
+    <h2>合わなかったら、<br>返品できます。</h2>
+    <p class="lead">枕は、使ってみないと分からない。だから「寝ごこち安心保証」をおつけしています。</p>
+    <p class="note" style="color:#a9b9b1;margin-top:10px">※保証の条件は「枕と抱き枕の20日間寝ごこち安心保証」ページをご確認ください。</p>
+    <div class="promise-sub">
+      <div><b>1年間</b><p>品質保証書つき。<br>安心して長くお使いいただけます。</p></div>
+      <div><b>洗える</b><p>枕本体は手もみ洗い・天日干しOK。<br>専用カバーも洗濯機で洗えます。</p></div>
+    </div>
+    <div class="origin">
+      <p class="mincho">秋田県八峰町の工場で、<br>ひとつずつ。</p>
+      <p class="lead">2025年、100万人の声をもとにアップデート。寝心地は受け継ぎ、カバーと形を進化させました。</p>
+      <p class="note">TBS系「ジョブチューン」睡眠のプロが国民のギモンを解決SPで紹介されました。</p>
+    </div>
+  </section>
+
+  <!-- 08 ギフト（季節差し替えブロック） -->
+  <section class="sec gift">
+    <p class="season">WINTER GIFT 2026</p>
+    <h2>この冬は、<br>「よく眠ってね」を贈る。</h2>
+    <p class="lead">お歳暮、クリスマス、誕生日に。毎晩使うものだから、贈ったあとも思い出してもらえる贈りものです。</p>
+    <div class="gift-photo">
+      <img src="https://image.rakuten.co.jp/oyasumi/cabinet/m104-2/104-700500-10-19.jpg" alt="化粧箱入りと不織布バッグ入りのパッケージ">
+    </div>
+    <ul class="gift-list">
+      <li><div><h3>化粧箱入り</h3><p>箱のまま渡せる、贈りもの向けパッケージ</p></div><span class="price">無料</span></li>
+      <li><div><h3>ギフトラッピング</h3><p>レッド・ネイビーの2色から</p></div><span class="swatch"><i style="background:var(--gift-red)"></i><i style="background:var(--gift-navy)"></i></span></li>
+      <li><div><h3>誕生日カード</h3><p>ラッピングとあわせて選べます</p></div><span class="price">無料</span></li>
+      <li><div><h3>名入れ</h3><p>世界にひとつの枕に</p></div><span class="price">+1,000円</span></li>
+    </ul>
+    <p class="gift-end note">住所を知らなくても贈れる「ソーシャルギフト」にも対応しています。</p>
+  </section>
+
+  <!-- 09 FAQ -->
+  <section class="sec faq">
+    <p class="label">Q&amp;A</p>
+    <h2>買う前に、<br>よく聞かれること。</h2>
+    <div class="faq-wrap">
+      <details open>
+        <summary>大きさはどのくらい？</summary>
+        <p class="a">約 幅62×奥行40cm。一般的な枕（43×63cm）と同じくらいの、ゆったりサイズです。寝返りしても頭が落ちにくい幅にしています。</p>
+      </details>
+      <details>
+        <summary>高さに迷ったら？</summary>
+        <p class="a">迷ったら「高さ標準」がおすすめです。低い枕が好きな方、今の枕が低めの方は「高さ低め」をお選びください。</p>
+      </details>
+      <details>
+        <summary>届いたとき、においはありますか？</summary>
+        <p class="a">素材特有のにおいが残っている場合があります。風通しのよい場所で2〜3日陰干しすると、少なくなります。</p>
+      </details>
+      <details>
+        <summary>洗えますか？</summary>
+        <p class="a">枕本体は手もみ洗いと天日干しができます。専用カバーは洗濯ネットに入れて中性洗剤で洗えます。乾燥機・ドライヤーは使わないでください。</p>
+      </details>
+      <details>
+        <summary>替えのカバーはありますか？</summary>
+        <p class="a">専用カバーが1枚ついています。洗い替え用の純正カバー（標準・クール）は3,410円で、枕と一緒に購入できます。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 10 仕様 -->
+  <section class="sec spec">
+    <p class="label">SPEC</p>
+    <h2>商品仕様</h2>
+    <dl>
+      <div><dt>商品名</dt><dd>王様の夢枕Ⅱ／王様の夢枕Ⅱクール</dd></div>
+      <div><dt>サイズ</dt><dd>約 幅62×奥行40（中央部34）cm<br>高さ標準：首元8cm・両脇12cm<br>高さ低め：首元7cm・両脇10cm</dd></div>
+      <div><dt>中素材</dt><dd>超極小ビーズ95%・ポリエステルわた5%</dd></div>
+      <div><dt>カバー</dt><dd>標準：テンセル入りダンボールニット<br>クール：接触冷感ダンボールニット<br>ファスナー式・専用カバー1枚付属</dd></div>
+      <div><dt>化粧箱サイズ</dt><dd>約 幅63×奥行38×高さ13cm</dd></div>
+      <div><dt>保証</dt><dd>品質保証書付き（1年間）・20日間寝ごこち安心保証</dd></div>
+      <div><dt>製造</dt><dd>日本製（秋田県八峰町）</dd></div>
+    </dl>
+  </section>
+
+  <section class="end">
+    <p class="mincho">今夜から、<br>王様の眠りを。</p>
+    <p class="note">送料無料・ギフトラッピング無料</p>
+  </section>
+</main>
+
+<p class="mock-note">リニューアル案モック（スマホ幅）。画像は現行ページの素材を仮で使用しています。選び方ナビと断面図の切り替えは楽天の商品説明では動かないため、本番では画像（フローチャート・2枚の断面図）に置き換えます。レビューは実際の投稿から仮で引用しています。</p>
+
+<script>
+(() => {
+  const head = document.getElementById('head');
+  const shapeText = document.getElementById('shapeText');
+  const POSES = {
+    back: { move: 'translate(0px,0px)', text: '仰向けのときは、低い中央に頭がおさまり、首元をやさしく支えます。' },
+    side: { move: 'translate(112px,-42px)', text: '横向きになったら、高さのある両脇へ。肩の分だけ高くなった頭を受けとめ、寝返りしても高さが合います。' }
+  };
+  document.querySelectorAll('.toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pose = POSES[btn.dataset.pose];
+      document.querySelectorAll('.toggle button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      head.style.transform = pose.move;
+      shapeText.textContent = pose.text;
+    });
+  });
+
+  document.querySelectorAll('.q').forEach(q => {
+    const out = document.getElementById('r-' + q.dataset.q);
+    q.querySelectorAll('.opts button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        q.querySelectorAll('.opts button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+        out.textContent = btn.dataset.v;
+        out.classList.remove('pending');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
